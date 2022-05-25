@@ -6,6 +6,11 @@ require_once(dirname(__FILE__, 2) . '/src/models/User.php');
 $user = new User(['name' => 'Lucas', 'email' => 'lucas@cod3r.com.br']);
 // echo $user -> getSelect();
 
-echo User::getSelect(['id' => 1]);
-echo'<br>';
-echo User::getSelect(['name' => 'Chaves', 'email' => 'chaves@cod3r.com.br']);
+print_r(User::get(['name' => 'Chaves'], 'id ,name, email'));
+
+echo '<br>';
+
+foreach(User::get([], 'name') as $user) {
+    echo $user -> name;
+    echo '<br>';
+}
